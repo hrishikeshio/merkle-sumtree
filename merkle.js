@@ -95,6 +95,7 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
     var nodes = [];
     var hash;
     for (var i = 0; i < leaves.length - 1; i = i + 2) {
+      // TODO add dBalance here :D
       hash = hashFunc(leaves[i] + leaves[i+1]);
       if (useUpperCaseForHash) {
         hash = hash.toUpperCase();
