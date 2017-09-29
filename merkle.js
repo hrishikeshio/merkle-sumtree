@@ -35,6 +35,7 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
     var data = String(anyData);
     if(data && data.match(that.hashResultRegexp)){
       // Push leaf without hashing it since it is already a hash
+      //TODO push object 
       that.leaves.push(data);
     }
     else{
@@ -42,6 +43,7 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
       if (useUpperCaseForHash) {
         hash = hash.toUpperCase();
       }
+      //TODO push object with balance
       that.leaves.push(hash);
     }
     return that;
@@ -78,7 +80,7 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
   function compute() {
     var theDepth = depth();
     if(that.rows.length == 0){
-      // Compute the nodes of each level
+      // Compute the nodes of each level 
       for (var i = 0; i < theDepth; i++) {
         that.rows.push([]);
       }
@@ -100,6 +102,7 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
       if (useUpperCaseForHash) {
         hash = hash.toUpperCase();
       }
+      //set this as object
       nodes[i/2] = hash;
     }
     if(remainder === 1){
