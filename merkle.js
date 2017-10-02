@@ -32,8 +32,8 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
   that.nodesCount = 0;
 
   function feed(anyData) {
-    var data = String(anyData[0]);
-    var balance = Number(anyData[1]);
+    var data = String(anyData);
+    var balance = Number(anyData[anyData.length-1]);
     // if(data && data.match(that.hashResultRegexp)){
     //   // Push leaf without hashing it since it is already a hash
     //   //TODO push object 
@@ -101,7 +101,7 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
     for (var i = 0; i < leaves.length - 1; i = i + 2) {
       // TODO add dBalance here :D
       hash = hashFunc(leaves[i] + leaves[i+1])
-      dbalance = leaves[i][1]+leaves[i+1][1];
+      dbalance = leaves[i][leaves[i].length-1]+leaves[i+1][leaves[i+1].length-1];
       if (useUpperCaseForHash) {
         hash = hash.toUpperCase();
       }
