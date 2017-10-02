@@ -31,22 +31,22 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
   that.rows = [];
   that.nodesCount = 0;
 
-  function feed(anyData,balance) {
-    var data = String(anyData);
-    var balance = Number(balance);
+  function feed(anyData) {
+    var data = String(anyData[0]);
+    var balance = Number(anyData[1]);
     // if(data && data.match(that.hashResultRegexp)){
     //   // Push leaf without hashing it since it is already a hash
     //   //TODO push object 
     //   that.leaves.push(data);
     // }
-    else{
+    // else{
       var hash = hashFunc(data);
       if (useUpperCaseForHash) {
         hash = hash.toUpperCase();
       }
       //TODO push object with balance
-      that.leaves.push(hash);
-    }
+      that.leaves.push([hash, balance]);
+    // }
     return that;
   }
 
@@ -97,14 +97,16 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
     var remainder = leaves.length % 2;
     var nodes = [];
     var hash;
+    var dbalance;
     for (var i = 0; i < leaves.length - 1; i = i + 2) {
       // TODO add dBalance here :D
-      hash = hashFunc(leaves[i] + leaves[i+1]);
+      hash = hashFunc(leaves[i] + leaves[i+1])
+      dbalance = leaves[i][1]+leaves[i+1][1];
       if (useUpperCaseForHash) {
         hash = hash.toUpperCase();
       }
       //set this as object
-      nodes[i/2] = hash;
+      nodes[i/2] = [hash, dbalance];
     }
     if(remainder === 1){
       nodes[((leaves.length-remainder)/2)] = leaves[leaves.length - 1];
@@ -242,3 +244,6 @@ module.exports = function (hashFuncName, useUpperCaseForHash) {
   // Use upper case y default
   useUpperCaseForHash !== false);
 };
+
+// let lol =crypto.createHash('sha1')
+// console.log(lol.update({"2","1"}).digest('hex'));
