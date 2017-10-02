@@ -31,13 +31,14 @@ function Merkle (hashFunc, hashFuncName, useUpperCaseForHash) {
   that.rows = [];
   that.nodesCount = 0;
 
-  function feed(anyData) {
+  function feed(anyData,balance) {
     var data = String(anyData);
-    if(data && data.match(that.hashResultRegexp)){
-      // Push leaf without hashing it since it is already a hash
-      //TODO push object 
-      that.leaves.push(data);
-    }
+    var balance = Number(balance);
+    // if(data && data.match(that.hashResultRegexp)){
+    //   // Push leaf without hashing it since it is already a hash
+    //   //TODO push object 
+    //   that.leaves.push(data);
+    // }
     else{
       var hash = hashFunc(data);
       if (useUpperCaseForHash) {
