@@ -1,7 +1,10 @@
-# Merkle [![Build Status](https://api.travis-ci.org/c-geek/merkle.png)](https://travis-ci.org/c-geek/merkle) [![NPM version](https://badge.fury.io/js/merkle.svg)](http://badge.fury.io/js/merkle) [![Licence](http://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/c-geek/merkle/blob/master/LICENSE)
 
-Builds a Merkle tree using either sha512, sha256, ripemd160, whirlpool, sha1, md5 or none algorithms.
+Note: Original merkle tree implementation by c-geek. I have forked it and modified it to behave like sumtree.
 
+ [![Licence](http://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/hrishikeshio/merkle-sumtree/blob/master/LICENSE)
+
+Builds a Merkle sum tree using either sha512, sha256, ripemd160, whirlpool, sha1, md5 or none algorithms.
+NOTE : OUTDATED DOCS. SEE CODE
 ## Usage
 
 ### Build a Merkle tree

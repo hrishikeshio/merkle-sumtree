@@ -1,7 +1,7 @@
 {
-  "name": "merkle",
+  "name": "merkle-sumtree",
   "version": "1.6.0",
-  "description": "Javascript implementation of merkle trees",
+  "description": "Javascript implementation of merkle sumtrees",
   "main": "merkle.js",
   "directories": {
     "test": "test"
@@ -12,17 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:c-geek/merkle.git"
+    "url": "git@github.com:hrishikeshio/merkle-sumtree"
   },
   "keywords": [
     "hash trees",
-    "cryptography"
+    "cryptography",
+    "merkle",
+    "sumtree"
   ],
-  "author": "Cedric Moreau <cem.moreau@gmail.com>",
+  "author": "Hrishikesh Huilgolkar <hrishikesh@variabl.io>",
   "license": "MIT",
   "readmeFilename": "readme.md",
   "bugs": {
-    "url": "https://github.com/c-geek/merkle/issues"
+    "url": "https://github.com/hrishikeshio/merkle-sumtree/issues"
   },
   "dependencies": {
     "optimist": "0.6.1",
